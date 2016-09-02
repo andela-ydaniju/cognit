@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: Cogniac Growphile
+  host: cogniac-growphile
+  disk_quota: 1024M
+  services:
+  - growphile1
+  env:
+    redacted_message: '[PRIVATE DATA HIDDEN]'
