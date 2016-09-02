@@ -1,0 +1,21 @@
+{
+  "personality_insights": [
+    {
+      "credentials": {
+        "url": "https://gateway.watsonplatform.net/personality-insights/api",
+        "password": "cpFrocLjgATN",
+        "username": "f593fb26-06fe-4e3b-b4e7-95c9e5f93484"
+      },
+      "syslog_drain_url": null,
+      "label": "personality_insights",
+      "provider": null,
+      "plan": "tiered",
+      "name": "Personality Insights-fe",
+      "tags": [
+        "watson",
+        "ibm_created",
+        "ibm_dedicated_public"
+      ]
+    }
+  ]
+}
