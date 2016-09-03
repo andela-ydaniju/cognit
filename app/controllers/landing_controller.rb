@@ -13,9 +13,6 @@ class LandingController < ApplicationController
   end
 
   def display
-    # @personality = session[:p_data]
-    # @values = session[:v_data]
-    # @needs = session[:n_data]
 
     pb = File.read("config/problem.json")
     cred = {
@@ -30,8 +27,6 @@ class LandingController < ApplicationController
                                  user: cred[:username],
                                  password: cred[:password]
                                 ).body
-
-    binding.pry
 
   end
 end
