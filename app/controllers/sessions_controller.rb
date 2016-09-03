@@ -51,5 +51,11 @@ class SessionsController < ApplicationController
         children: x['children'].map { |e| { name: e['name'], percent: e['percentage']}  }
       }
     end
+
+    session[:p_data] = @p_data.to_json
+    session[:n_data] = @n_data.to_json
+    session[:v_data] = @v_data.to_json
+
+    redirect_to personality_insights_path
   end
 end

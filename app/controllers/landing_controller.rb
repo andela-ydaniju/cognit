@@ -9,6 +9,6 @@ class LandingController < ApplicationController
   end
 
   def show
-    # @personality = session[:personality]
+    @personality = session[:p_data]
   end
 end

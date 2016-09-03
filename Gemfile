@@ -26,6 +26,7 @@ gem 'omniauth-twitter'
 gem 'twitter_oauth'
 gem "figaro"
 gem "excon"
+gem "activerecord-session_store"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

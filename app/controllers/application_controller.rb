@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def access_token
     @access_token ||= @client.authorize(
                                         params['oauth_token'] || session[:oauth_token],
-                                        session[:oauth]['secret'],
+                                        session[:oauth].secret,
                                         oauth_verifier: params[:oauth_verifier] || session[:oauth_verifier]
                                       )
   end
