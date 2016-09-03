@@ -6,7 +6,15 @@ applications:
   name: Cogniac Growphile
   host: cogniac-growphile
   disk_quota: 1024M
+  command: bundle exec rake db:migrate VERBOSE=true
   services:
   - growphile1
+  - Personality Insights-fe
+  - Tradeoff Analytics-5o
+
   env:
     redacted_message: '[PRIVATE DATA HIDDEN]'
+    TOKEN: 3246896507-kL18cGKm2lp5hDtNrHQC0qEVXlGK5Y1cPEYbQIB
+    TOKEN_SECRET: lnRRn3hAn0FrPSvKkitOgInvsZAAr2vPPNz435G4KqEbo
+    TWITTER_KEY: R6k93UJjrjRgWsVpkBJw75lkZ
+    TWITTER_SECRET: YqCJdSSiFsZGufh3O07pxyxXZRGjXLxzI9ZDqGYDqNTh7h93mv
