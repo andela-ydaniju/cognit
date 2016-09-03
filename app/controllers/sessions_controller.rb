@@ -120,6 +120,10 @@ pb = {
                                  password: cred[:password]
                                 ).body
     @companies = @res["resolution"]["solutions"].select{|d| d["status"] == "FRONT"}
-    render json: @companies
+    @result = @companies.map do |x|
+      arr[x["solution_ref"].to_i - 1]
+    end
+    # binding.pry
+    # render json: @result
   end
 end
