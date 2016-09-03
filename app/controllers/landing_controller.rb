@@ -1,9 +1,14 @@
 class LandingController < ApplicationController
+  before_action :client
+
   def index
-    client = TwitterOAuth::Client.new consumer_key: ENV['TWITTER_KEY'],
-      consumer_secret: ENV['TWITTER_SECRET']
-    request_token = client.request_token oauth_callback: "http://127.0.0.1:3000/auth/token/callback"
+    request_token = @client.request_token oauth_callback: "http://127.0.0.1:3000/auth/token/callback"
     session[:oauth] = request_token
+    session[:oauth_url] = request_token.authorize_url
     @authorize_url = request_token.authorize_url
+  end
+
+  def show
+    # @personality = session[:personality]
   end
 end

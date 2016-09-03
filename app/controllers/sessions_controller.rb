@@ -1,8 +1,11 @@
 class SessionsController < ApplicationController
+  before_action :client
+  before_action :access_token
+
   def create
-    client = TwitterOAuth::Client.new consumer_key: ENV['TWITTER_KEY'], consumer_secret: ENV['TWITTER_SECRET']
-    access_token = client.authorize session[:oauth]['token'], session[:oauth]['secret'], oauth_verifier: params[:oauth_verifier]
-    @tweets = client.user_timeline({ count: 500 })
+    session[:oauth_token] = params[:oauth_token]
+    session[:oauth_verifier] = params[:oauth_verifier]
+    @tweets = @client.user_timeline({ count: 500 })
     data = { contentItems: @tweets.map do |tweet|
         {
           content: tweet['text'],
@@ -19,6 +22,34 @@ class SessionsController < ApplicationController
     config = File.read("config/personality.json")
     hash = JSON.parse(config)["personality_insights"][0]["credentials"]
 
-    res = Excon.post("#{hash['url']}/v2/profile", body: data, headers: {"Content-Type": "application/json"}, user: hash["username"], password: hash["password"])
+    @res = JSON.parse Excon.post("#{hash['url']}/v2/profile", body: data, headers: {"Content-Type": "application/json"}, user: hash["username"], password: hash["password"]).body
+
+    @personality = @res['tree']['children'][0]
+    @needs = @res['tree']['children'][1]
+    @values = @res['tree']['children'][2]
+
+    @p_data = @personality['children'].map do |x|
+      {
+        cat: x["name"],
+        percent: x["percentage"],
+        children: x['children'].map { |e| { name: e['name'], percent: e['percentage']}  }
+      }
+    end
+
+    @n_data = @needs['children'].map do |x|
+      {
+        cat: x["name"],
+        percent: x["percentage"],
+        children: x['children'].map { |e| { name: e['name'], percent: e['percentage']}  }
+      }
+    end
+
+    @v_data = @values['children'].map do |x|
+      {
+        cat: x["name"],
+        percent: x["percentage"],
+        children: x['children'].map { |e| { name: e['name'], percent: e['percentage']}  }
+      }
+    end
   end
 end
