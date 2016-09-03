@@ -9,6 +9,7 @@ applications:
   buildpack: https://github.com/cloudfoundry/ruby-buildpack
   command: bundle exec rake db:migrate VERBOSE=true
   services:
+  - growphile-db
   - growphile1
   - Personality Insights-fe
   - Tradeoff Analytics-5o
