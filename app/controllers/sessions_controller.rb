@@ -94,7 +94,7 @@ count = 0
 CSV.foreach('companylist-1.csv') do |row|
   arr << {
     key: count += 1,
-    name: row[6],
+    name: row[1],
     values: {
       Openness: rand(0..1.0),
       Conscientiousness: rand(0..1.0),
@@ -123,7 +123,5 @@ pb = {
     @result = @companies.map do |x|
       arr[x["solution_ref"].to_i - 1]
     end
-    # binding.pry
-    # render json: @result
   end
 end
