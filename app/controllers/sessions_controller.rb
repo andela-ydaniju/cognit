@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :client
-  before_action :access_token
+  before_action :client, only: [:create]
+  before_action :access_token, only: [:create]
 
   def create
     session[:oauth_token] = params[:oauth_token]
@@ -57,5 +57,9 @@ class SessionsController < ApplicationController
     session[:v_data] = @v_data.to_json
 
     redirect_to personality_insights_path
+  end
+
+  def process_insights
+    redirect_to root_path
   end
 end
