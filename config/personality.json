@@ -3,8 +3,8 @@
     {
       "credentials": {
         "url": "https://gateway.watsonplatform.net/personality-insights/api",
-        "password": "cpFrocLjgATN",
-        "username": "f593fb26-06fe-4e3b-b4e7-95c9e5f93484"
+        "password": "gSpov4A4msP7",
+        "username": "57a6285a-5ee3-47fa-aa3f-56dd18885b91"
       },
       "syslog_drain_url": null,
       "label": "personality_insights",
