@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -26,6 +26,7 @@ gem 'omniauth-twitter'
 gem 'twitter_oauth'
 gem "figaro"
 gem "excon"
+gem "activerecord-session_store"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +39,11 @@ gem "excon"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
