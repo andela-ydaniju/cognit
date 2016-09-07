@@ -28,14 +28,7 @@ gem 'figaro'
 gem 'excon'
 gem 'activerecord-session_store'
 gem 'annotate'
-gem 'bcrypt', '~> 3.1.7'
 gem 'ffaker'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'pry'
